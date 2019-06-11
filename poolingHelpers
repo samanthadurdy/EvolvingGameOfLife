@@ -1,0 +1,14 @@
+
+
+#Helpers for pooling
+def initialisationHelper(p):
+    xDim, yDim, initPopChance = p
+    pop = initialisePop(xDim, yDim, initPopChance)
+    return (evaluate(pop), pop)
+def breedingHelper(parents):
+    p1 = random.choice(parents)
+    p2 = random.choice(parents)
+    c1, c2 = crossover(p1,p2)
+    c1 = mutate(c1, flipChance, shiftChance)
+    c2 = mutate(c2, flipChance, shiftChance)
+    return [(evaluate(c1), c1), (evaluate(c2),c2)]
