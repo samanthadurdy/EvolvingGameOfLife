@@ -1,7 +1,7 @@
 from gameOfLife import evaluate, Image
 #Variables:
-popFile = "population/342.txt"
-outputFile = "output4.gif"
+popFile = "population/500.txt"
+outputFile = "output5.gif"
 
 
 def readPop(file):
@@ -10,7 +10,7 @@ def readPop(file):
     pop = list(map(lambda y: list(map(lambda x: bool(int(x)),y[:-1])), lines))
     return pop
 
-pop = readPop("population/7.txt")
+pop = readPop(popFile)
 
 count, frames = evaluate(pop, visualise= True)
-frames[0].save('output3.gif', format='GIF', append_images=frames[1:], save_all=True, duration=200, loop=0)
+frames[0].save(outputFile, format='GIF', append_images=frames[1:], save_all=True, duration=200, loop=0)
